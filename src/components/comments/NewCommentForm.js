@@ -15,9 +15,11 @@ const NewCommentForm = (props) => {
   useEffect(() => {
     if (status === 'completed' && !error) {
       onAddedComment();
+       // sendRequest(quoteId);
     }
   }, [status, error, onAddedComment]);
-
+//
+//
   const submitFormHandler = (event) => {
     event.preventDefault();
 
@@ -35,10 +37,13 @@ const NewCommentForm = (props) => {
           <LoadingSpinner />
         </div>
       )}
-      <div className={classes.control} onSubmit={submitFormHandler}>
+      {/*  */}
+      {/*  onSubmit={submitFormHandler} ?? */}
+      <div className={classes.control} onSubmit={submitFormHandler}> 
         <label htmlFor='comment'>Your Comment</label>
         <textarea id='comment' rows='5' ref={commentTextRef}></textarea>
       </div>
+      {/*  */}
       <div className={classes.actions}>
         <button className='btn'>Add Comment</button>
       </div>

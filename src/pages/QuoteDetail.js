@@ -11,12 +11,13 @@ const QuoteDetail = () => {
   const match = useRouteMatch();
   const params = useParams();
 
+  // console.log(match);
+  // console.log(params);
+  
+
   const { quoteId } = params;
 
-  const { sendRequest, status, data: loadedQuote, error } = useHttp(
-    getSingleQuote,
-    true
-  );
+  const { sendRequest, status, data: loadedQuote, error } = useHttp(getSingleQuote, true);
 
   useEffect(() => {
     sendRequest(quoteId);
@@ -41,6 +42,8 @@ const QuoteDetail = () => {
   return (
     <Fragment>
       <HighlightedQuote text={loadedQuote.text} author={loadedQuote.author} />
+      {/*  */}
+      {/*  */}
       <Route path={match.path} exact>
         <div className='centered'>
           <Link className='btn--flat' to={`${match.url}/comments`}>
@@ -48,9 +51,13 @@ const QuoteDetail = () => {
           </Link>
         </div>
       </Route>
+      {/*  */}
+      {/*  */}
       <Route path={`${match.path}/comments`}>
         <Comments />
       </Route>
+      {/*  */}
+      {/*  */}
     </Fragment>
   );
 };

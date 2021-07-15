@@ -8,7 +8,7 @@ import { getAllQuotes } from '../lib/api';
 
 const AllQuotes = () => {
   const { sendRequest, status, data: loadedQuotes, error } = useHttp(
-    getAllQuotes,
+    getAllQuotes, // async function. return transformedQuotes
     true
   );
 

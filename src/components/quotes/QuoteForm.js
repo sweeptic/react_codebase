@@ -10,7 +10,8 @@ const QuoteForm = (props) => {
 
   const authorInputRef = useRef();
   const textInputRef = useRef();
-
+  //
+  //
   function submitFormHandler(event) {
     event.preventDefault();
 
@@ -21,11 +22,13 @@ const QuoteForm = (props) => {
 
     props.onAddQuote({ author: enteredAuthor, text: enteredText });
   }
-
+  //
+  //
   const finishEnteringHandler = () => {
     setIsEntering(false);
   };
-
+  //
+  //
   const formFocusedHandler = () => {
     setIsEntering(true);
   };
@@ -39,6 +42,7 @@ const QuoteForm = (props) => {
         }
       />
       <Card>
+        {/*  */}
         <form
           onFocus={formFocusedHandler}
           className={classes.form}
@@ -62,6 +66,8 @@ const QuoteForm = (props) => {
             <button onClick={finishEnteringHandler} className='btn'>Add Quote</button>
           </div>
         </form>
+        {/*  */}
+        {/*  */}
       </Card>
     </Fragment>
   );

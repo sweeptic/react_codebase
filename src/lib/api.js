@@ -1,5 +1,8 @@
-const FIREBASE_DOMAIN = 'https://react-prep-default-rtdb.firebaseio.com';
+const FIREBASE_DOMAIN = 'https://food-a464d-default-rtdb.europe-west1.firebasedatabase.app/';
 
+//
+//
+//
 export async function getAllQuotes() {
   const response = await fetch(`${FIREBASE_DOMAIN}/quotes.json`);
   const data = await response.json();
@@ -21,7 +24,9 @@ export async function getAllQuotes() {
 
   return transformedQuotes;
 }
-
+//
+//
+//
 export async function getSingleQuote(quoteId) {
   const response = await fetch(`${FIREBASE_DOMAIN}/quotes/${quoteId}.json`);
   const data = await response.json();
@@ -37,7 +42,9 @@ export async function getSingleQuote(quoteId) {
 
   return loadedQuote;
 }
-
+//
+//
+//
 export async function addQuote(quoteData) {
   const response = await fetch(`${FIREBASE_DOMAIN}/quotes.json`, {
     method: 'POST',
@@ -54,7 +61,9 @@ export async function addQuote(quoteData) {
 
   return null;
 }
-
+//
+//
+//
 export async function addComment(requestData) {
   const response = await fetch(`${FIREBASE_DOMAIN}/comments/${requestData.quoteId}.json`, {
     method: 'POST',
@@ -71,7 +80,9 @@ export async function addComment(requestData) {
 
   return { commentId: data.name };
 }
-
+//
+//
+//
 export async function getAllComments(quoteId) {
   const response = await fetch(`${FIREBASE_DOMAIN}/comments/${quoteId}.json`);
 
