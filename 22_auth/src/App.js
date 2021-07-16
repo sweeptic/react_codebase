@@ -13,26 +13,21 @@ function App() {
   return (
     <Layout>
       <Switch>
-
         <Route path='/' exact>
           <HomePage />
         </Route>
-
         {!authCtx.isLoggedIn && (
           <Route path='/auth'>
             <AuthPage />
           </Route>
         )}
-
         <Route path='/profile'>
           {authCtx.isLoggedIn && <UserProfile />}
           {!authCtx.isLoggedIn && <Redirect to='/auth' />}
         </Route>
-
         <Route path='*'>
           <Redirect to='/' />
         </Route>
-        
       </Switch>
     </Layout>
   );
