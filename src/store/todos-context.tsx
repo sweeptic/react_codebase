@@ -14,20 +14,20 @@ export const TodosContext = React.createContext<TodosContextObj>({
   removeTodo: (id: string) => {},
 });
 
-const TodosContextProvider: React.FC = (props) => {
+const TodosContextProvider: React.FC = props => {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   const addTodoHandler = (todoText: string) => {
     const newTodo = new Todo(todoText);
 
-    setTodos((prevTodos) => {
+    setTodos(prevTodos => {
       return prevTodos.concat(newTodo);
     });
   };
 
   const removeTodoHandler = (todoId: string) => {
-    setTodos((prevTodos) => {
-      return prevTodos.filter((todo) => todo.id !== todoId);
+    setTodos(prevTodos => {
+      return prevTodos.filter(todo => todo.id !== todoId);
     });
   };
 
@@ -37,11 +37,7 @@ const TodosContextProvider: React.FC = (props) => {
     removeTodo: removeTodoHandler,
   };
 
-  return (
-    <TodosContext.Provider value={contextValue}>
-      {props.children}
-    </TodosContext.Provider>
-  );
+  return <TodosContext.Provider value={contextValue}>{props.children}</TodosContext.Provider>;
 };
 
 export default TodosContextProvider;
